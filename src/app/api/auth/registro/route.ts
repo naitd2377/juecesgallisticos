@@ -14,6 +14,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (password.length < 6) {
+      return NextResponse.json(
+        { error: "La contraseña debe tener al menos 6 caracteres" },
+        { status: 400 }
+      );
+    }
+
     const existingUser = await prisma.user.findUnique({
       where: { email: email.toLowerCase() },
     });
@@ -51,16 +58,10 @@ export async function POST(request: Request) {
         role: user.role,
       },
     });
-  } catch (error: any) {
-    console.error("Registro error completo:", error);
+  } catch (error) {
+    console.error("Registro error:", error);
     return NextResponse.json(
-      { 
-        error: "Error interno del servidor",
-        detalle: error.message,
-        codigo: error.code,
-        nombre: error.name,
-        stack: error.stack
-      },
+      { error: "Error interno del servidor" },
       { status: 500 }
     );
   }
