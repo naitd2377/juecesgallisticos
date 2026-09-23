@@ -1,0 +1,87 @@
+// Prisma schema para Jueces Gallísticos
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      Role     @default(JUEZ)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  events Event[]
+  scores Score[]
+
+  @@map("users")
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  name        String
+  date        DateTime
+  location    String?
+  description String?
+  status      Status   @default(PROGRAMADO)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  fights Fight[]
+  scores Score[]
+
+  @@map("events")
+}
+
+model Fight {
+  id        String   @id @default(cuid())
+  number    Int
+  eventId   String
+  event     Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  status    Status   @default(PROGRAMADO)
+  winner    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  scores Score[]
+
+  @@map("fights")
+}
+
+model Score {
+  id        String   @id @default(cuid())
+  fightId   String
+  fight     Fight    @relation(fields: [fightId], references: [id], onDelete: Cascade)
+  eventId   String
+  event     Event    @relation(fields: [eventId], references: [id])
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  points    Int
+  notes     String?
+  createdAt DateTime @default(now())
+
+  @@unique([fightId, userId])
+  @@map("scores")
+}
+
+enum Role {
+  ADMIN
+  JUEZ
+}
+
+enum Status {
+  PROGRAMADO
+  EN_PROGRESO
+  FINALIZADO
+  CANCELADO
+}
