@@ -8,17 +8,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  Award, Trophy, Shield, Mic, Monitor, Scale, Ring, Printer, Computer,
+  Award, Trophy, Shield, Mic, Monitor, Weight, Circle, Printer, Laptop,
   Facebook, Instagram, Phone, ChevronRight, Camera,
 } from "lucide-react";
 
 export default function Home() {
   const services = [
-    { icon: Computer, title: "Cotejo por Computadora", description: "Sistema digital de calificación en tiempo real para transparencia total." },
+    { icon: Laptop, title: "Cotejo por Computadora", description: "Sistema digital de calificación en tiempo real para transparencia total." },
     { icon: Printer, title: "Hojas de Enfrentamientos", description: "Entregamos hojas de enfrentamientos impresas para todos los participantes." },
     { icon: Mic, title: "Bocina con Micrófonos", description: "Servicio de sonido profesional con micrófonos para el animador y jueces." },
-    { icon: Ring, title: "Anillos para Gallos", description: "Contamos con anillos numerados para la identificación de los gallos." },
-    { icon: Scale, title: "Báscula Digital", description: "Báscula digital de precisión para el pesaje oficial de los animales." },
+    { icon: Circle, title: "Anillos para Gallos", description: "Contamos con anillos numerados para la identificación de los gallos." },
+    { icon: Weight, title: "Báscula Digital", description: "Báscula digital de precisión para el pesaje oficial de los animales." },
     { icon: Monitor, title: "Pantallas", description: "Dos pantallas: una para el reloj de asiento y otra para los enfrentamientos." },
   ];
 

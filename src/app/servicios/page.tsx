@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Award, Computer, Printer, Mic, Scale, Ring, Monitor, CheckCircle2, Phone } from "lucide-react";
+import { Award, Laptop, Printer, Mic, Weight, Circle, Monitor, CheckCircle2, Phone } from "lucide-react";
 
 export const metadata = { title: "Servicios - Jueces Gallísticos", description: "Servicios profesionales para eventos gallísticos" };
 
 export default function ServiciosPage() {
   const services = [
-    { icon: Computer, title: "Cotejo por Computadora", description: "Sistema digital de calificación en tiempo real que garantiza transparencia total en los resultados.", features: ["Calificación digital en tiempo real", "Transparencia total en resultados", "Registro electrónico de puntos", "Eliminación de errores manuales"] },
+    { icon: Laptop, title: "Cotejo por Computadora", description: "Sistema digital de calificación en tiempo real que garantiza transparencia total en los resultados.", features: ["Calificación digital en tiempo real", "Transparencia total en resultados", "Registro electrónico de puntos", "Eliminación de errores manuales"] },
     { icon: Printer, title: "Hojas de Enfrentamientos Impresas", description: "Entregamos hojas de enfrentamientos impresas profesionalmente para todos los participantes y organizadores.", features: ["Hojas impresas de alta calidad", "Para todos los participantes", "Formato profesional", "Entrega inmediata"] },
     { icon: Mic, title: "Servicio de Bocina con Micrófonos", description: "Sistema de sonido profesional con micrófonos para el animador, jueces y organizadores.", features: ["Sistema de sonido profesional", "Micrófonos para animador", "Micrófonos para jueces", "Calidad de audio garantizada"] },
-    { icon: Ring, title: "Anillos para los Gallos", description: "Contamos con anillos numerados para la correcta identificación de los gallos.", features: ["Anillos numerados", "Identificación precisa", "Material resistente", "Diferentes tamaños"] },
-    { icon: Scale, title: "Báscula Digital", description: "Báscula digital de alta precisión para el pesaje oficial de los animales.", features: ["Alta precisión", "Pesaje oficial", "Pantalla digital legible", "Calibración profesional"] },
+    { icon: Circle, title: "Anillos para los Gallos", description: "Contamos con anillos numerados para la correcta identificación de los gallos.", features: ["Anillos numerados", "Identificación precisa", "Material resistente", "Diferentes tamaños"] },
+    { icon: Weight, title: "Báscula Digital", description: "Báscula digital de alta precisión para el pesaje oficial de los animales.", features: ["Alta precisión", "Pesaje oficial", "Pantalla digital legible", "Calibración profesional"] },
     { icon: Monitor, title: "Pantallas para el Evento", description: "Dos pantallas profesionales: una para el reloj de asiento y otra para los enfrentamientos.", features: ["Pantalla para reloj de asiento", "Pantalla para enfrentamientos", "Alta visibilidad", "Actualización en tiempo real"] },
   ];
 
