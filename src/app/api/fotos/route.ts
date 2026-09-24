@@ -37,7 +37,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const blobToken = process.env.PUBLIC_BLOB_READ_WRITE_TOKEN || process.env.BLOB_READ_WRITE_TOKEN;
+    const blobToken = process.env.MI_BLOB_TOKEN;
 
     const blob = await put(`galeria/${Date.now()}-${file.name}`, file, {
       access: "public",
