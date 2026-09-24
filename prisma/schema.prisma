@@ -6,7 +6,15 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model Foto {
+  id        String   @id @default(cuid())
+  url       String
+  title     String
+  eventName String?
+  createdAt DateTime @default(now())
 
+  @@map("fotos")
+}
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
