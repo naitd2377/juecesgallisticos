@@ -137,7 +137,7 @@ export default function Home() {
                 <Link href="/contacto"><Phone className="h-4 w-4" />Solicitar Presupuesto</Link>
               </Button>
               <Button size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                <Link href="https://facebook.com" target="_blank"><Facebook className="h-4 w-4" />Facebook</Link>
+                <Link href="https://www.facebook.com/share/19crkTFZ6U/" target="_blank"><Facebook className="h-4 w-4" />Facebook</Link>
               </Button>
             </div>
           </CardContent>
@@ -166,18 +166,18 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-4">Contacto</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2"><Phone className="h-4 w-4" />+52 XXX XXX XXXX</li>
-                <li className="flex items-center gap-2"><Phone className="h-4 w-4" />+52 XXX XXX XXXX</li>
+                <li className="flex items-center gap-2"><Phone className="h-4 w-4" />+52 618 271 1051</li>
+                <li className="flex items-center gap-2"><Phone className="h-4 w-4" />+52 221 174 3456</li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Redes Sociales</h3>
               <div className="flex gap-3">
                 <Button variant="outline" size="icon" asChild>
-                  <Link href="https://facebook.com" target="_blank"><Facebook className="h-4 w-4" /></Link>
+                  <Link href="https://www.facebook.com/share/19crkTFZ6U/" target="_blank"><Facebook className="h-4 w-4" /></Link>
                 </Button>
                 <Button variant="outline" size="icon" asChild>
-                  <Link href="https://instagram.com" target="_blank"><Instagram className="h-4 w-4" /></Link>
+                  <Link href="https://www.instagram.com/naita7723" target="_blank"><Instagram className="h-4 w-4" /></Link>
                 </Button>
               </div>
             </div>

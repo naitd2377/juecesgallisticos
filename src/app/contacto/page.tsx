@@ -43,13 +43,13 @@ export default function ContactoPage() {
                 <CardDescription>Llámanos para información inmediata</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
-                <a href="tel:+52XXXXXXXXXX" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
+                <a href="tel:+526182711051" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
                   <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center"><Phone className="h-5 w-5 text-green-600" /></div>
-                  <div><p className="font-medium">+52 XXX XXX XXXX</p><p className="text-sm text-muted-foreground">Teléfono principal</p></div>
+                  <div><p className="font-medium">+52 618 271 1051</p><p className="text-sm text-muted-foreground">Teléfono principal</p></div>
                 </a>
-                <a href="tel:+52XXXXXXXXXX" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
+                <a href="tel:+522211743456" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
                   <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center"><Phone className="h-5 w-5 text-green-600" /></div>
-                  <div><p className="font-medium">+52 XXX XXX XXXX</p><p className="text-sm text-muted-foreground">Teléfono secundario</p></div>
+                  <div><p className="font-medium">+52 221 174 3456</p><p className="text-sm text-muted-foreground">Teléfono secundario</p></div>
                 </a>
               </CardContent>
             </Card>
@@ -60,9 +60,9 @@ export default function ContactoPage() {
                 <CardDescription>Escríbenos para presupuestos detallados</CardDescription>
               </CardHeader>
               <CardContent>
-                <a href="mailto:contacto@juecesgallisticos.com" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
+                <a href="mailto:juecesgallisticos@gmail.com" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
                   <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center"><Mail className="h-5 w-5 text-blue-600" /></div>
-                  <div><p className="font-medium">contacto@juecesgallisticos.com</p><p className="text-sm text-muted-foreground">Correo principal</p></div>
+                  <div><p className="font-medium">juecesgallisticos@gmail.com</p><p className="text-sm text-muted-foreground">Correo principal</p></div>
                 </a>
               </CardContent>
             </Card>
@@ -73,13 +73,13 @@ export default function ContactoPage() {
                 <CardDescription>Síguenos en nuestras redes sociales</CardDescription>
               </CardHeader>
               <CardContent className="space-y-3">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
+                <a href="https://www.facebook.com/share/19crkTFZ6U/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
                   <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center"><Facebook className="h-5 w-5 text-blue-600" /></div>
-                  <div><p className="font-medium">Facebook</p><p className="text-sm text-muted-foreground">/juecesgallisticos</p></div>
+                  <div><p className="font-medium">Facebook</p><p className="text-sm text-muted-foreground">Jueces Gallísticos</p></div>
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
+                <a href="https://www.instagram.com/naita7723" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-lg hover:bg-secondary transition-colors">
                   <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center"><Instagram className="h-5 w-5 text-pink-600" /></div>
-                  <div><p className="font-medium">Instagram</p><p className="text-sm text-muted-foreground">@juecesgallisticos</p></div>
+                  <div><p className="font-medium">Instagram</p><p className="text-sm text-muted-foreground">@naita7723</p></div>
                 </a>
               </CardContent>
             </Card>
@@ -103,7 +103,7 @@ export default function ContactoPage() {
                 <CardDescription>Completa el formulario y te contactaremos pronto</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4" action="https://formsubmit.co/contacto@juecesgallisticos.com" method="POST">
+                <form className="space-y-4" action="https://formsubmit.co/juecesgallisticos@gmail.com" method="POST">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Nombre completo *</Label>
