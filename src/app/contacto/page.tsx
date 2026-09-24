@@ -23,7 +23,7 @@ export default function ContactoPage() {
             <Link href="/galeria" className="hover:text-primary">Galería</Link>
             <Link href="/contacto" className="text-primary font-medium">Contacto</Link>
           </nav>
-          <Button asChild><Link href="/login">Iniciar Sesión</Link></Button>
+          <Button asChild><Link href="/contacto">Contratar</Link></Button>
         </div>
       </header>
 

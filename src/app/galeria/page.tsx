@@ -2,18 +2,21 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Camera, Phone, Calendar, MapPin } from "lucide-react";
+import { prisma } from "@/lib/prisma";
 
 export const metadata = { title: "Galería - Jueces Gallísticos", description: "Galería de eventos donde hemos trabajado como jueces" };
 
-export default function GaleriaPage() {
-  const events = [
-    { title: "Torneo Regional 2024", date: "Marzo 2024", location: "Palenque Municipal", color: "from-amber-500 to-orange-600" },
-    { title: "Evento Municipal", date: "Abril 2024", location: "Centro de Eventos", color: "from-blue-500 to-cyan-600" },
-    { title: "Competencia Estatal", date: "Mayo 2024", location: "Arena Regional", color: "from-green-500 to-emerald-600" },
-    { title: "Exhibición Especial", date: "Junio 2024", location: "Club Gallístico", color: "from-purple-500 to-pink-600" },
-    { title: "Torneo Anual", date: "Julio 2024", location: "Palenque Central", color: "from-red-500 to-rose-600" },
-    { title: "Evento Privado", date: "Agosto 2024", location: "Finca Privada", color: "from-indigo-500 to-blue-600" },
-  ];
+export const dynamic = "force-dynamic";
+
+export default async function GaleriaPage() {
+  let fotos: any[] = [];
+  try {
+    fotos = await prisma.foto.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (e) {
+    console.error(e);
+  }
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -27,6 +30,7 @@ export default function GaleriaPage() {
             <Link href="/" className="hover:text-primary">Inicio</Link>
             <Link href="/servicios" className="hover:text-primary">Servicios</Link>
             <Link href="/nosotros" className="hover:text-primary">Nosotros</Link>
+            <Link href="/eventos" className="hover:text-primary">Eventos</Link>
             <Link href="/galeria" className="text-primary font-medium">Galería</Link>
             <Link href="/contacto" className="hover:text-primary">Contacto</Link>
           </nav>
@@ -40,29 +44,51 @@ export default function GaleriaPage() {
         </div>
         <h1 className="text-4xl font-bold mb-4">Galería de Eventos</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Estos son algunos de los eventos donde hemos trabajado como jueces oficiales. Cada evento es una muestra de nuestro compromiso con la transparencia y el profesionalismo.
+          Estos son algunos de los eventos donde hemos trabajado como jueces oficiales.
         </p>
       </section>
 
       <section className="container mx-auto px-4 py-8 flex-1">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((event, i) => (
-            <Card key={i} className="overflow-hidden group cursor-pointer">
-              <div className={`aspect-video bg-gradient-to-br ${event.color} relative flex items-end p-6`}>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-                <div className="relative text-white">
-                  <Camera className="h-8 w-8 mb-2 opacity-80" />
-                  <h3 className="text-xl font-bold">{event.title}</h3>
-                  <div className="flex items-center gap-1 mt-1 text-sm opacity-90"><Calendar className="h-3 w-3" />{event.date}</div>
-                  <div className="flex items-center gap-1 mt-1 text-sm opacity-90"><MapPin className="h-3 w-3" />{event.location}</div>
+        {fotos.length === 0 ? (
+          <Card>
+            <CardContent className="p-12 text-center">
+              <Camera className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Aún no hay fotos</h3>
+              <p className="text-muted-foreground mb-4">
+                Pronto subiremos fotos de nuestros eventos. Vuelve pronto para verlas.
+              </p>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {fotos.map((foto) => (
+              <Card key={foto.id} className="overflow-hidden group cursor-pointer">
+                <div className="aspect-video bg-secondary relative overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={foto.url}
+                    alt={foto.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-              </div>
-              <CardContent className="p-4">
-                <p className="text-sm text-muted-foreground">Evento donde participamos como jueces oficiales con servicio completo de cotejo, bocina y pantallas.</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                <CardContent className="p-4">
+                  <h3 className="font-semibold text-lg mb-1">{foto.title}</h3>
+                  {foto.eventName && (
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground mb-1">
+                      <MapPin className="h-3 w-3" />{foto.eventName}
+                    </div>
+                  )}
+                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                    <Calendar className="h-3 w-3" />
+                    {new Date(foto.createdAt).toLocaleDateString("es-ES", {
+                      day: "numeric", month: "long", year: "numeric",
+                    })}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </section>
 
       <section className="container mx-auto px-4 py-16">
