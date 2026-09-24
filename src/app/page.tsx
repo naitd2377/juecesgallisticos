@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Award, Trophy, Shield, Mic, Monitor, Weight, Circle, Printer, Laptop, Facebook, Instagram, Phone, ChevronRight, Camera, Calendar } from "lucide-react";
 
@@ -41,6 +42,16 @@ export default function Home() {
       <section className="container mx-auto px-4 py-20 text-center flex-1 flex flex-col justify-center">
         <div className="inline-flex items-center justify-center mb-6">
           <span className="px-4 py-1.5 rounded-full bg-secondary text-secondary-foreground text-sm font-medium">Jueces Profesionales con Experiencia</span>
+        </div>
+                <div className="flex justify-center mb-8">
+          <Image
+            src="/logo.jpeg"
+            alt="Jueces Gallísticos"
+            width={200}
+            height={200}
+            className="rounded-full"
+            priority
+          />
         </div>
         <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-6">
           Jueces Gallísticos<span className="block text-primary mt-2">Profesionales</span>
