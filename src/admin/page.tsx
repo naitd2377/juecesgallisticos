@@ -43,8 +43,20 @@ export default function AdminPage() {
   const fetchEvents = async (token: string) => {
     try {
       const res = await fetch("/api/eventos", { headers: { Authorization: `Bearer ${token}` } });
+      if (res.status === 401) {
+        // Si el token expiró, cerrar sesión
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setUser(null);
+        setEvents([]);
+        toast.error("Tu sesión expiró. Inicia sesión de nuevo.");
+        return;
+      }
       const data = await res.json();
-      setEvents(data);
+      // Solo setear si es un array
+      if (Array.isArray(data)) {
+        setEvents(data);
+      }
     } catch (e) {
       toast.error("Error al cargar eventos");
     } finally {
